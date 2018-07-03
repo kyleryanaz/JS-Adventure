@@ -7,9 +7,10 @@ let position = 0;
 const prompts = [
   "Goodbye.",
   "You are just outside the town of Hoban. To \
-  the North is the town gate. To the south is a \
+  the North is the town gate. To the South is a \
   dirt road leading away from the town. To the \
-  East and West is a forest of pine trees."
+  East and West is a forest of pine trees. What \
+  do you do?"
 ];
 
 const inventroy = [];
@@ -20,9 +21,11 @@ let collectEntry = () => {
     switch (uInput) {
       case "no":
         prompter.innerHTML = prompts[0];
+        position++;
         break;
       case "yes":
         prompter.innerHTML = prompts[1];
+        position++;
         break;
       default:
         alert("input not recognized");
