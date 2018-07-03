@@ -9,9 +9,10 @@ body {
   display: flex;
   flex-wrap: nowrap;
   margin: auto auto 5vh auto;
-  border: 10px solid gray;
-  background-color:black;
-  color:green;
+  border: 20px solid gray;
+  border-radius: 10px;
+  background-color:rgb(13, 32, 16);
+  color:rgb(2, 168, 2);
 }
 
 #screen > div {

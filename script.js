@@ -5,6 +5,7 @@ const submit = document.getElementById("submit");
 let position = 0;
 
 const prompts = [
+  "Welcome. Are you ready to play?",
   "Goodbye.",
   "You are just outside the town of Hoban. To \
   the North is the town gate. To the South is a \
@@ -22,8 +23,14 @@ let promptWriter = (prompt) => {
       prompter.innerHTML += prompt.charAt(pDex);
       pDex++;
       setTimeout(() => promptWriter(prompt), 75);
+    }else{
+      pDex=0;
     }
   }
+
+$(document).ready(function(){
+  promptWriter(prompts[0]);
+});
 
 let collectEntry = () => {
   let uInput = entry.value.toLowerCase();
@@ -31,12 +38,12 @@ let collectEntry = () => {
     switch (uInput) {
       case "no":
       prompter.innerHTML = "";
-        promptWriter(prompts[0]);
+        promptWriter(prompts[1]);
         position++;
         break;
       case "yes":
       prompter.innerHTML = "";
-        promptWriter(prompts[1]);
+        promptWriter(prompts[2]);
         position++;
         break;
       default:
