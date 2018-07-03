@@ -15,16 +15,28 @@ const prompts = [
 
 const inventroy = [];
 
+var pDex = 0;
+
+let promptWriter = (prompt) => {
+    if (pDex < prompt.length) {
+      prompter.innerHTML += prompt.charAt(pDex);
+      pDex++;
+      setTimeout(() => promptWriter(prompt), 75);
+    }
+  }
+
 let collectEntry = () => {
   let uInput = entry.value.toLowerCase();
   if (position === 0) {
     switch (uInput) {
       case "no":
-        prompter.innerHTML = prompts[0];
+      prompter.innerHTML = "";
+        promptWriter(prompts[0]);
         position++;
         break;
       case "yes":
-        prompter.innerHTML = prompts[1];
+      prompter.innerHTML = "";
+        promptWriter(prompts[1]);
         position++;
         break;
       default:
