@@ -2,11 +2,7 @@ body {
   text-align: center;
 }
 
-/* #screen {
-  padding: 5vh 0px 0px 0px;
-} */
-
-.flex-container {
+#screen {
   width: 45vw;
   min-height: 40vh;
   display: flex;
@@ -15,7 +11,7 @@ body {
   border: 1px solid black;
 }
 
-.flex-container > div {
+#screen > div {
   width: auto;
   margin: 50px 10px 50px 10px;
   text-align: center;
