@@ -2,9 +2,22 @@ body {
   text-align: center;
 }
 
-#screen {
-  height: 50vh;
-  width: 50vw;
+/* #screen {
+  padding: 5vh 0px 0px 0px;
+} */
+
+.flex-container {
+  width: 45vw;
+  min-height: 40vh;
+  display: flex;
+  flex-wrap: nowrap;
   margin: auto auto 5vh auto;
   border: 1px solid black;
+}
+
+.flex-container > div {
+  width: auto;
+  margin: 50px 10px 50px 10px;
+  text-align: center;
+  line-height: 20px;
 }
