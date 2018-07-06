@@ -90,6 +90,8 @@ let collectEntry = () => {
   } else {
     console.log('position problem');
   }
+  entry.value = '';
+  return false;
 };
 
-submit.addEventListener('click', collectEntry);
+// submit.addEventListener('click', collectEntry);
