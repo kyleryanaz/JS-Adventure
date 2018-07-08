@@ -46,12 +46,12 @@ let collectEntry = () => {
   if (position === 0) {
     switch (uInput) {
       case 'no':
-      prompter.innerHTML = '';
+        prompter.innerHTML = '';
         promptWriter(p00Prompts[0]);
         position++;
         break;
       case 'yes':
-      prompter.innerHTML = '';
+        prompter.innerHTML = '';
         promptWriter(p00Prompts[1]);
         position++;
         break;
@@ -62,25 +62,25 @@ let collectEntry = () => {
     switch (uInput){
       case 'go north':
       case 'walk north':
-      prompter.innerHTML = '';
+        prompter.innerHTML = '';
         promptWriter(p01Prompts[0]);
         position++;
         break;
       case 'go east':
       case 'walk east':
-      prompter.innerHTML = '';
+        prompter.innerHTML = '';
         promptWriter(p01Prompts[1]);
         position++;
         break;
       case 'go south':
       case 'walk south':
-      prompter.innerHTML = '';
+        prompter.innerHTML = '';
         promptWriter(p01Prompts[2]);
         position++;
         break;
       case 'go west':
       case 'walk west':
-      prompter.innerHTML = '';
+        prompter.innerHTML = '';
         promptWriter(p01Prompts[3]);
         position++;
         break;

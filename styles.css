@@ -17,7 +17,7 @@ body {
 
 #screen > div {
   width: auto;
-  margin: 50px 10px 50px 10px;
+  margin: 25px 25px 25px 25px;
   text-align: center;
   line-height: 20px;
   font-family: 'Roboto Mono', monospace;
