@@ -32,7 +32,10 @@ const startPrompts = [
 
 const woodsWestPrompts = [
   'You pick up the coin and put it in your bag. You \
-  are surrounded by pine trees.'
+  are surrounded by pine trees.',
+  'You come to a brick wall that runs from from East \
+  to West. You discern that this is the southern wall \
+  of Hoban.'
 ]
 
 var pDex = 0;
@@ -102,10 +105,23 @@ let collectEntry = () => {
     case 'woodsWest':
       switch(uInput){
         case 'pick up coin':
-        prompter.innerHTML = '';
-        promptWriter(woodsWestPrompts[0]);
-        inventory.push('gold coin');
-        console.log(inventory);
+          prompter.innerHTML = '';
+          promptWriter(woodsWestPrompts[0]);
+          inventory.push('gold coin');
+          console.log(inventory);
+        break;
+        case 'go north':
+          prompter.innerHTML = '';
+          promptWriter(woodsWestPrompts[1]);
+          position = 'westWall'
+        break;
+        case 'go back':
+          prompter.innerHTML = '';
+          promptWriter(greetingPrompts[1]);
+          position = 'start';
+        break;
+        default:
+          alert('input not recognized');
       }
     break;
     default:
