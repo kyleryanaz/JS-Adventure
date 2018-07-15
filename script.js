@@ -30,6 +30,11 @@ const startPrompts = [
   base of one of the trees.'
 ];
 
+const woodsWestPrompts = [
+  'You pick up the coin and put it in your bag. You \
+  are surrounded by pine trees.'
+]
+
 var pDex = 0;
 
 let promptWriter = (prompt) => {
@@ -93,6 +98,14 @@ let collectEntry = () => {
         break;
         default:
           alert('input not recognized');
+      }
+    case 'woodsWest':
+      switch(uInput){
+        case 'pick up coin':
+        prompter.innerHTML = '';
+        promptWriter(woodsWestPrompts[0]);
+        inventory.push('gold coin');
+        console.log(inventory);
       }
     break;
     default:
