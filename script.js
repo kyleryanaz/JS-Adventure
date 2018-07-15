@@ -4,6 +4,8 @@ const submit = document.getElementById('submit');
 
 let position = 'greeting';
 
+let availableItems = ['gold coin'];
+
 let inventory = [];
 
 const greeting = 'Welcome. Are you ready to play?';
@@ -27,12 +29,20 @@ const startPrompts = [
   road.',
   'You head into the woods West of the road. You are \
   surrounded by pine trees. A gold coin lies at the \
-  base of one of the trees.'
+  base of one of the trees.',
+  'You head into the woods West of the road. You are \
+  surrounded by pine trees.'
 ];
 
 const woodsWestPrompts = [
   'You pick up the coin and put it in your bag. You \
   are surrounded by pine trees.',
+  'You come to a brick wall that runs from from East \
+  to West. You discern that this is the southern wall \
+  of Hoban.'
+]
+
+const woodsEastPrompts = [
   'You come to a brick wall that runs from from East \
   to West. You discern that this is the southern wall \
   of Hoban.'
@@ -95,20 +105,42 @@ let collectEntry = () => {
         break;
         case 'go west':
         case 'walk west':
-          prompter.innerHTML = '';
-          promptWriter(startPrompts[3]);
-          position = 'woodsWest';
+          if(availableItems[0] === 'gold coin'){
+            prompter.innerHTML = '';
+            promptWriter(startPrompts[3]);
+            position = 'woodsWest';
+          } else {
+            prompter.innerHTML = '';
+            promptWriter(startPrompts[4]);
+            position = 'woodsWest';
+          }
         break;
         default:
           alert('input not recognized');
       }
+    break;
+    case 'woodsEast':
+      switch(uInput){
+        case 'go north':
+          prompter.innerHTML = '';
+          promptWriter(woodsEastPrompts[0]);
+          position = 'eastWall'
+        break;
+        case 'go back':
+          prompter.innerHTML = '';
+          promptWriter(greetingPrompts[1]);
+          position = 'start';
+        break;
+      }
+    break;
     case 'woodsWest':
       switch(uInput){
         case 'pick up coin':
           prompter.innerHTML = '';
           promptWriter(woodsWestPrompts[0]);
+          availableItems.splice(0,1);
           inventory.push('gold coin');
-          console.log(inventory);
+          console.log(inventory, availableItems);
         break;
         case 'go north':
           prompter.innerHTML = '';
