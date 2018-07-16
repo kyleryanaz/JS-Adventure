@@ -103,7 +103,7 @@ let collectEntry = () => {
           position = 'roadSouth';
         break;
         case 'go west':
-          if(availableItems[0] === 'gold coin'){
+          if(availableItems.includes('gold coin')){
             prompter.innerHTML = '';
             promptWriter(startPrompts[3]);
             position = 'woodsWest';
@@ -167,7 +167,7 @@ let collectEntry = () => {
     case 'woodsSouthWest':
       switch(uInput){
         case 'go north':
-        if(availableItems[0] === 'gold coin'){
+        if(availableItems.includes('gold coin')){
           prompter.innerHTML = '';
           promptWriter(startPrompts[3]);
           position = 'woodsWest';
@@ -195,7 +195,7 @@ let collectEntry = () => {
     case 'westWall':
       switch(uInput){
         case 'go south':
-          if(availableItems[0] === 'gold coin'){
+          if(availableItems.includes('gold coin')){
             prompter.innerHTML = '';
             promptWriter(startPrompts[3]);
             position = 'woodsWest';
