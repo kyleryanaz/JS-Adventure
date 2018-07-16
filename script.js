@@ -39,13 +39,15 @@ const woodsWestPrompts = [
   are surrounded by pine trees.',
   'You come to a brick wall that runs from from East \
   to West. You discern that this is the southern wall \
-  of Hoban.'
+  of Hoban.',
+  'You are surrounded by Pine Trees.'
 ]
 
 const woodsEastPrompts = [
   'You come to a brick wall that runs from from East \
   to West. You discern that this is the southern wall \
-  of Hoban.'
+  of Hoban.',
+  'You are surrounded by Pine Trees.'
 ]
 
 var pDex = 0;
@@ -86,25 +88,21 @@ let collectEntry = () => {
     case 'start':
       switch (uInput){
         case 'go north':
-        case 'walk north':
           prompter.innerHTML = '';
           promptWriter(startPrompts[0]);
           position = 'gate';
         break;
         case 'go east':
-        case 'walk east':
           prompter.innerHTML = '';
           promptWriter(startPrompts[1]);
           position = 'woodsEast';
         break;
         case 'go south':
-        case 'walk south':
           prompter.innerHTML = '';
           promptWriter(startPrompts[2]);
           position = 'roadSouth';
         break;
         case 'go west':
-        case 'walk west':
           if(availableItems[0] === 'gold coin'){
             prompter.innerHTML = '';
             promptWriter(startPrompts[3]);
@@ -126,7 +124,12 @@ let collectEntry = () => {
           promptWriter(woodsEastPrompts[0]);
           position = 'eastWall'
         break;
-        case 'go back':
+        case 'go south':
+          prompter.innerHTML = '';
+          promptWriter(woodsEastPrompts[1]);
+          position = 'woodsSouthEast'
+        break;
+        case 'go west':
           prompter.innerHTML = '';
           promptWriter(greetingPrompts[1]);
           position = 'start';
@@ -147,10 +150,71 @@ let collectEntry = () => {
           promptWriter(woodsWestPrompts[1]);
           position = 'westWall'
         break;
-        case 'go back':
+        case 'go south':
+          prompter.innerHTML = '';
+          promptWriter(woodsWestPrompts[2]);
+          position = 'woodsSouthWest'
+        break;
+        case 'go east':
           prompter.innerHTML = '';
           promptWriter(greetingPrompts[1]);
           position = 'start';
+        break;
+        default:
+          alert('input not recognized');
+      }
+    break;
+    case 'woodsSouthWest':
+      switch(uInput){
+        case 'go north':
+        if(availableItems[0] === 'gold coin'){
+          prompter.innerHTML = '';
+          promptWriter(startPrompts[3]);
+          position = 'woodsWest';
+        } else {
+          prompter.innerHTML = '';
+          promptWriter(startPrompts[4]);
+          position = 'woodsWest';
+        }
+        break;
+        default:
+          alert('input not recognized');
+      }
+    break;
+    case 'woodsSouthEast':
+      switch(uInput){
+        case 'go north':
+          prompter.innerHTML = '';
+          promptWriter(woodsEastPrompts[1]);
+          position = 'woodsEast';
+        break;
+        default:
+          alert('input not recognized');
+      }
+    break;
+    case 'westWall':
+      switch(uInput){
+        case 'go south':
+          if(availableItems[0] === 'gold coin'){
+            prompter.innerHTML = '';
+            promptWriter(startPrompts[3]);
+            position = 'woodsWest';
+          } else {
+            prompter.innerHTML = '';
+            promptWriter(startPrompts[4]);
+            position = 'woodsWest';
+          }
+        break;
+        default:
+          alert('input not recognized');
+      }
+    break;
+    case 'eastWall':
+      switch(uInput){
+        case 'go south':
+            prompter.innerHTML = '';
+            promptWriter(startPrompts[1]);
+            position = 'eastWest';
         break;
         default:
           alert('input not recognized');
