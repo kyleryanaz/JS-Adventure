@@ -117,6 +117,27 @@ let collectEntry = () => {
           alert('input not recognized');
       }
     break;
+    case 'roadSouth':
+      switch(uInput){
+        case 'go north':
+         prompter.innerHTML = '';
+         promptWriter(greetingPrompts[1]);
+        position = 'start'
+        break;
+        case 'go east':
+         prompter.innerHTML = '';
+         promptWriter(woodsEastPrompts[1]);
+         position = 'woodsSouthEast'
+        break;
+        case 'go west':
+         prompter.innerHTML = '';
+         promptWriter(woodsWestPrompts[2]);
+         position = 'woodsSouthWest'
+        break;
+        default:
+          alert('input not recognized');
+      }
+    break;
     case 'woodsEast':
       switch(uInput){
         case 'go north':
@@ -134,6 +155,8 @@ let collectEntry = () => {
           promptWriter(greetingPrompts[1]);
           position = 'start';
         break;
+        default:
+          alert('input not recognized');
       }
     break;
     case 'woodsWest':
